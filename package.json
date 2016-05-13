@@ -1,0 +1,36 @@
+{
+  "name": "svg-flatten",
+  "version": "1.0.0",
+  "description": "Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It can merge groups and apply transforms.",
+  "main": "src/lib.js",
+  "dependencies": {
+    "svgpath": "^2.1.6",
+    "xmldoc": "^0.5.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.9",
+    "sinon": "^1.17.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "svg",
+    "flatten",
+    "flattener",
+    "shape",
+    "circle",
+    "ellipse",
+    "line",
+    "path",
+    "polygon",
+    "polyline",
+    "rect",
+    "g",
+    "transform"
+  ],
+  "author": "alex-pex",
+  "license": "ISC"
+}
