@@ -27,7 +27,8 @@ function Wrapper(source) {
 
     this.value = function() {
         if (typeof source === "string") {
-            return this._value.toString();
+            var meta = source.substr(0, source.indexOf("<" + this._value.name));
+            return meta + this._value.toString();
         } else {
             return this._value;
         }
