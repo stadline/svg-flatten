@@ -3,21 +3,37 @@
 var expect = require('chai').expect;
 var fs = require('fs');
 var svgflatten = require('../src/lib.js');
+var xmldoc = require('xmldoc');
 
 // test
-describe('svg-flatten: test samples', function() {
-    it('should give accurate results', function() {
-        var sample = fs.readFileSync(__dirname + '/samples/sample1.svg', 'utf8');
+describe('svg-flatten: test samples', function () {
+    var samples = ["sample1", "sample2"];
 
-        var result = svgflatten(sample)
-          .pathify()
-          .flatten()
-          .transform()
-          .value();
+    samples.forEach(function(basename) {
+        it('should give accurate results (' + basename + ')', function () {
+            var sample = fs.readFileSync(__dirname + '/samples/' + basename + '.svg', 'utf8');
+            var expectedResult = fs.readFileSync(__dirname + '/samples/' + basename + '_result.svg', 'utf8');
 
-        var expectedResult = fs.readFileSync(__dirname + '/samples/sample1_result.svg', 'utf8');
+            // test with string
+            var result = svgflatten(sample)
+              .pathify()
+              .flatten()
+              .transform()
+              .value();
 
-        // test
-        expect(result).to.be.equal(expectedResult);
+            expect(result).to.be.equal(expectedResult);
+
+            // test with dom
+            var sampleDom = new xmldoc.XmlDocument(sample);
+            var expectedResultDom = new xmldoc.XmlDocument(expectedResult);
+
+            var resultDom = svgflatten(sampleDom)
+              .pathify()
+              .flatten()
+              .transform()
+              .value();
+
+            expect(resultDom.toString()).to.be.equal(expectedResultDom.toString());
+        });
     });
 });
