@@ -26,8 +26,11 @@ function flattenGroup(dom) {
 
     dom.children.forEach(function (child) {
         var flatChild = transform(flatten(child));
-        var prefix = path.attr.d.length ? " " : "";
-        path.attr.d += prefix + flatChild.attr.d;
+
+        if (flatChild.attr.d) {
+            var prefix = path.attr.d.length ? " " : "";
+            path.attr.d += prefix + flatChild.attr.d;
+        }
     });
 
     return path;

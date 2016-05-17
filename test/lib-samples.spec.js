@@ -7,7 +7,7 @@ var xmldoc = require('xmldoc');
 
 // test
 describe('svg-flatten: test samples', function () {
-    var samples = ["sample1", "sample2"];
+    var samples = ["sample1", "sample2", "sample3"];
 
     samples.forEach(function(basename) {
         it('should give accurate results (' + basename + ')', function () {
