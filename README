@@ -1,0 +1,6 @@
+svg-flatten
+===========
+
+Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It can merge groups and apply transforms
+
+**Todo: WTFM!**
