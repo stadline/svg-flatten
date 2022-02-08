@@ -98,8 +98,8 @@ function convertPolyline(dom) {
 }
 
 function convertRect(dom) {
-    var x = parseFloat(dom.attr.x);
-    var y = parseFloat(dom.attr.y);
+    var x = parseFloat(dom.attr.x || 0);
+    var y = parseFloat(dom.attr.y || 0);
     var width = parseFloat(dom.attr.width);
     var height = parseFloat(dom.attr.height);
 
