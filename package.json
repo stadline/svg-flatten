@@ -9,12 +9,14 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "jshint": "^2.9.1",
     "mocha": "^2.4.5",
     "proxyquire": "^1.7.9",
     "sinon": "^1.17.4"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "jshint **/*.js"
   },
   "keywords": [
     "svg",
