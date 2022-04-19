@@ -1,5 +1,5 @@
-svg-flatten
-===========
+svg-flatten <img src="https://app.travis-ci.com/stadline/svg-flatten.svg?branch=master" />
+==========================================================================================
 
 Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It can merge groups and apply transforms
 
