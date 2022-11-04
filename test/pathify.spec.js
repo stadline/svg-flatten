@@ -14,6 +14,22 @@ describe('svg-flatten: pathify function', function() {
         expect(pathifyFn(source).toString()).to.be.equal(target.toString());
     });
 
+    it('should convert circle without center point', function() {
+        var source = new xmldoc.XmlDocument('<svg><circle r="17"/></svg>');
+        var target = new xmldoc.XmlDocument('<svg><path d="M-17,0a17,17 0 1,0 34,0a17,17 0 1,0 -34,0"/></svg>');
+
+        // test
+        expect(pathifyFn(source).toString()).to.be.equal(target.toString());
+    });
+
+    it('should convert circle without radius', function() {
+        var source = new xmldoc.XmlDocument('<svg><circle cx="100" cy="200"/></svg>');
+        var target = new xmldoc.XmlDocument('<svg><path d="M100,200a0,0 0 1,0 0,0a0,0 0 1,0 0,0"/></svg>');
+
+        // test
+        expect(pathifyFn(source).toString()).to.be.equal(target.toString());
+    });
+
     it('should convert ellipse', function() {
         var source = new xmldoc.XmlDocument('<svg><ellipse cx="200" cy="200" rx="11" ry="42"/></svg>');
         var target = new xmldoc.XmlDocument('<svg><path d="M189,200a11,42 0 1,0 22,0a11,42 0 1,0 -22,0"/></svg>');

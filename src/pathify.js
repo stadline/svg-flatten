@@ -1,6 +1,6 @@
 /*jshint singleGroups: false*/
 
-function _convertEllipse(cx, cy, rx, ry) {
+function _convertEllipse(cx = 0, cy = 0, rx = 0, ry = 0) {
     return "M" + (cx - rx) + "," + cy + "a" + rx + "," + ry + " 0 1,0 " + (rx * 2) + ",0a" + rx + "," + ry + " 0 1,0 " + (rx * -2) + ",0";
 }
 
