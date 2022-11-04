@@ -1,7 +1,7 @@
 svg-flatten <img src="https://app.travis-ci.com/stadline/svg-flatten.svg?branch=master" />
 ==========================================================================================
 
-Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It can merge groups and apply transforms
+Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It can merge groups and apply transforms.
 
 How to use?
 -----------
@@ -35,9 +35,16 @@ Turns SVG shapes (polygon, polyline, rect, g) into SVG paths. It is **needed** b
 
 Converts groups of paths to a fat path, combining all child paths into one.
 
+**Be careful: it tries to squash the xml structure, information can be lost.**
+
+Some example of the limitations:
+- duplicate attributes cannot be safely squashed, like the id in `<g id="g1"><circle id="c1" r="5"/></g>`
+- style rules based on the structure like `#g1 > circle`
+- [`use`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use) directive may not apply
+
 ### .transform(): SvgFlatten
 
-Apply SVG transformations to paths.
+Apply [SVG transformations](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform) to paths. It doesn't apply clipPath.
 
 ### .value(): string
 
